@@ -1,0 +1,19 @@
+{
+	"name": "sdk-ts",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "packages/sdk-ts/src",
+	"projectType": "library",
+	"targets": {
+		"build": {
+			"executor": "@nx/js:tsc",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/packages/sdk-ts",
+				"main": "packages/sdk-ts/src/index.ts",
+				"tsConfig": "packages/sdk-ts/tsconfig.lib.json",
+				"assets": ["packages/sdk-ts/*.md"]
+			}
+		}
+	},
+	"tags": []
+}

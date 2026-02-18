@@ -1,0 +1,21 @@
+node_modules/
+dist/
+.vite/
+.DS_Store
+
+# Nx
+.nx/
+
+# Rust
+target/
+
+# Model artifacts
+artifacts/
+cache/
+
+EXPERIMENT_PLAN.md
+PRD.md
+
+
+vite.config.*.timestamp*
+vitest.config.*.timestamp*
