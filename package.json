@@ -16,6 +16,7 @@
 		"reset": "nx reset",
 		"split:model": "nx run model-splitter:split-help",
 		"split:sample": "nx run model-splitter:split-sample"
+		,"test:sdk": "pnpm --filter ./packages/sdk-ts test"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.4.2",
