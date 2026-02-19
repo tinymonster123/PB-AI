@@ -50,3 +50,75 @@ impl ModelManifest {
         Ok(())
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn sample_chunk() -> ManifestChunk {
+        ManifestChunk {
+            id: "base".to_string(),
+            filename: "base.safetensors".to_string(),
+            layer_start: 0,
+            layer_end: 0,
+            bytes: 1024,
+            sha256: "abc123".to_string(),
+            url: String::new(),
+        }
+    }
+
+    fn sample_manifest() -> ModelManifest {
+        ModelManifest {
+            model_id: "Qwen/Qwen2.5-3B".to_string(),
+            version: "1.0.0".to_string(),
+            dtype: "auto".to_string(),
+            min_runnable_depth: 4,
+            chunks: vec![sample_chunk()],
+        }
+    }
+
+    #[test]
+    fn validate_ok() {
+        assert!(sample_manifest().validate().is_ok());
+    }
+
+    #[test]
+    fn validate_empty_chunks() {
+        let mut m = sample_manifest();
+        m.chunks.clear();
+        assert!(m.validate().is_err());
+    }
+
+    #[test]
+    fn validate_zero_min_runnable_depth() {
+        let mut m = sample_manifest();
+        m.min_runnable_depth = 0;
+        assert!(m.validate().is_err());
+    }
+
+    #[test]
+    fn serde_roundtrip() {
+        let manifest = sample_manifest();
+        let json = serde_json::to_string(&manifest).unwrap();
+        let deserialized: ModelManifest = serde_json::from_str(&json).unwrap();
+        assert_eq!(deserialized.model_id, manifest.model_id);
+        assert_eq!(deserialized.chunks.len(), 1);
+        assert_eq!(deserialized.chunks[0].id, "base");
+    }
+
+    #[test]
+    fn serde_skip_empty_fields() {
+        let chunk = sample_chunk();
+        let json = serde_json::to_string(&chunk).unwrap();
+        // url is empty, should be skipped
+        assert!(!json.contains("\"url\""));
+    }
+
+    #[test]
+    fn serde_includes_nonempty_url() {
+        let mut chunk = sample_chunk();
+        chunk.url = "https://example.com/base.safetensors".to_string();
+        let json = serde_json::to_string(&chunk).unwrap();
+        assert!(json.contains("\"url\""));
+    }
+}

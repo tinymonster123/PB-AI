@@ -215,15 +215,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "model-splitter"
-version = "0.1.0"
-dependencies = [
- "clap",
- "manifest-core",
- "serde_json",
-]
-
-[[package]]
 name = "once_cell_polyfill"
 version = "1.70.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"

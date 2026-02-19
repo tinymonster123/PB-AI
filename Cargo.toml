@@ -1,3 +1,3 @@
 [workspace]
-members = ["crates/manifest-core", "crates/model-splitter", "crates/pb-sharder"]
+members = ["crates/manifest-core", "crates/pb-sharder"]
 resolver = "2"
