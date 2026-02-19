@@ -13,9 +13,7 @@ target/
 artifacts/
 cache/
 
-EXPERIMENT_PLAN.md
-PRD.md
-
-
 vite.config.*.timestamp*
 vitest.config.*.timestamp*
+
+docs/

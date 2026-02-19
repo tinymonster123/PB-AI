@@ -27,9 +27,3 @@
 - `pnpm build`：构建全部项目
 - `pnpm typecheck`：类型检查
 - `pnpm lint`：运行 lint 目标（当前为占位或 clippy）
-
-## 下一步建议
-
-- 在 `sdk-ts` 中落地真实 chunk 下载 + sha256 校验
-- 在 `model-splitter` 中接入 safetensors 读取并按层切块
-- 将 `manifest-core` 的字段命名与 TS 规范统一（camelCase 或 snake_case）
