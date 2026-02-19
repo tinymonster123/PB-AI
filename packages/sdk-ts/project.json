@@ -13,6 +13,12 @@
 				"tsConfig": "packages/sdk-ts/tsconfig.lib.json",
 				"assets": ["packages/sdk-ts/*.md"]
 			}
+		},
+		"test": {
+            "executor": "@nx/vitest:test",
+			"options": {
+				"config": "packages/sdk-ts/vitest.config.mts"
+			}
 		}
 	},
 	"tags": []

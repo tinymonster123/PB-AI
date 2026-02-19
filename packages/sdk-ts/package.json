@@ -2,10 +2,17 @@
 	"name": "sdk-ts",
 	"version": "0.0.1",
 	"private": true,
-	"type": "commonjs",
-	"main": "./src/index.js",
-	"types": "./src/index.d.ts",
+	"type": "module",
+	"main": "./src/index.ts",
+	"types": "./src/index.ts",
 	"dependencies": {
 		"tslib": "^2.3.0"
+	},
+	"devDependencies": {
+		"@webgpu/types": "^0.1.54"
+	}
+	,
+	"scripts": {
+		"test": "pnpm nx test sdk-ts"
 	}
 }
