@@ -1,10 +1,4 @@
-//! pb-sharder: Qwen2.5 Safetensors 模型分块工具
-//!
-//! 将 Qwen2.5 模型（Safetensors 格式）拆分为逻辑分块：
-//! - Base 块: 包含 Embedding、Final RMSNorm、LM Head
-//! - Layer 块: 按指定层数将 Transformer 层打包为独立文件
-//!
-//! 利用 memmap2 实现零拷贝读取
+// 利用 memmap2 实现零拷贝读取
 
 use std::fs::File;
 use std::path::PathBuf;
@@ -15,7 +9,9 @@ use memmap2::Mmap;
 
 mod classify;
 mod io;
+mod model_rules;
 mod shard;
+mod metrics;
 
 // CLI 参数定义
 
@@ -23,7 +19,7 @@ mod shard;
 #[command(
     name = "pb-sharder",
     version,
-    about = "将 Qwen2.5 safetensors 模型拆分为逻辑分块"
+    about = "将 safetensors 模型拆分为逻辑分块"
 )]
 pub struct Args {
     /// 包含源 .safetensors 文件的目录路径
