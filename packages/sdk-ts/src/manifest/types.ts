@@ -15,8 +15,8 @@ export interface ManifestChunk {
 	layer_end: number;
 	/** 文件大小（字节） */
 	bytes: number;
-	/** SHA-256 校验和的十六进制字符串 */
-	sha256: string;
+	/** 校验摘要的十六进制字符串 (BLAKE3) */
+	hash: string;
 	/** 远程下载 URL（由上传工具填写）。可能为空。 */
 	url?: string;
 }

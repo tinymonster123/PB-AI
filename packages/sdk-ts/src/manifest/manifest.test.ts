@@ -15,7 +15,7 @@ const sampleManifest = (): ModelManifest => {
 				layer_start: 0,
 				layer_end: 0,
 				bytes: 1024,
-				sha256: 'abc123',
+				hash: 'abc123',
 			},
 			{
 				id: 'layers_0-3',
@@ -23,7 +23,7 @@ const sampleManifest = (): ModelManifest => {
 				layer_start: 0,
 				layer_end: 3,
 				bytes: 4096,
-				sha256: 'def456',
+				hash: 'def456',
 			},
 		],
 	};
@@ -73,7 +73,7 @@ describe('manifest types', () => {
 					layer_start: 0,
 					layer_end: 0,
 					bytes: 100,
-					sha256: 'abc',
+					hash: 'abc',
 				},
 			],
 		};
