@@ -16,25 +16,6 @@ pub enum TensorClass {
     Layer(u32),
 }
 
-/// 根据 Qwen2.5 的 Tensor 命名规则进行分类
-///
-/// # Qwen2.5 Tensor 命名约定
-///
-/// ## Base（非层级）Tensor:
-///   - `model.embed_tokens.weight`       — 词嵌入矩阵
-///   - `model.norm.weight`               — 最终 RMSNorm（lm_head 前）
-///   - `lm_head.weight`                  — 输出投影（词表 logits）
-///
-/// ## Layer（层级）Tensor（模式: `model.layers.{N}.{组件}`）:
-///   - `model.layers.{N}.self_attn.q_proj.weight/bias`  — Query 投影（Qwen2.5 带 bias）
-///   - `model.layers.{N}.self_attn.k_proj.weight/bias`  — Key 投影
-///   - `model.layers.{N}.self_attn.v_proj.weight/bias`  — Value 投影
-///   - `model.layers.{N}.self_attn.o_proj.weight`       — Output 投影
-///   - `model.layers.{N}.mlp.gate_proj.weight`          — SwiGLU 门控
-///   - `model.layers.{N}.mlp.up_proj.weight`            — SwiGLU 上投影
-///   - `model.layers.{N}.mlp.down_proj.weight`          — SwiGLU 下投影
-///   - `model.layers.{N}.input_layernorm.weight`        — 注意力前 RMSNorm
-///   - `model.layers.{N}.post_attention_layernorm.weight` — 注意力后 RMSNorm
 pub fn classify_tensor(name: &str, layer_re: &Regex) -> TensorClass {
     if let Some(caps) = layer_re.captures(name) {
         let layer_num: u32 = caps[1].parse().expect("层索引必须是有效的 u32");
