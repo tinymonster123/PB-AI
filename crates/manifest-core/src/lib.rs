@@ -14,8 +14,9 @@ pub struct ManifestChunk {
     pub layer_end: u32,
     /// 文件大小（字节）
     pub bytes: u64,
-    /// SHA-256 校验值
-    pub sha256: String,
+    /// 校验摘要（字段名 `hash`）
+    #[serde(rename = "hash")]
+    pub hash: String,
     /// 远端下载地址（由上传工具填充）
     #[serde(default, skip_serializing_if = "String::is_empty")]
     pub url: String,
@@ -62,7 +63,7 @@ mod tests {
             layer_start: 0,
             layer_end: 0,
             bytes: 1024,
-            sha256: "abc123".to_string(),
+            hash: "abc123".to_string(),
             url: String::new(),
         }
     }
