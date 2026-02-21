@@ -20,5 +20,6 @@ docs/
 
 models/
 # pb-sharder outputs and analysis
-crates/pb-sharder/out/
-crates/pb-sharder/analysis/
+# moved crates into tools/shard-cli
+tools/shard-cli/pb-sharder/out/
+tools/shard-cli/pb-sharder/analysis/
