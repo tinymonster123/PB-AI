@@ -1,0 +1,9 @@
+[project]
+name = "quantization"
+version = "0.1.0"
+description = "量化 tinyLLama"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "optimum[onnxruntime]>=2.1.0",
+]
