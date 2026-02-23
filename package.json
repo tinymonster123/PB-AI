@@ -13,10 +13,7 @@
 		"check": "biome check --write .",
 		"graph": "nx graph",
 		"show:projects": "nx show projects",
-		"reset": "nx reset",
-		"split:model": "nx run model-splitter:split-help",
-		"split:sample": "nx run model-splitter:split-sample"
-		,"test:sdk": "pnpm --filter ./packages/sdk-ts test"
+		"reset": "nx reset"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.4.2",

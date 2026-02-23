@@ -1,3 +1,0 @@
-[workspace]
-members = ["tools/shard-cli/manifest-core", "tools/shard-cli/pb-sharder"]
-resolver = "2"
