@@ -1,0 +1,10 @@
+[project]
+name = "onnx-sharder"
+version = "0.1.0"
+description = "将 ONNX 模型按 Transformer 层切分为多个 external data 文件"
+requires-python = ">=3.11"
+dependencies = [
+    "onnx>=1.16.0",
+    "numpy>=1.26.0",
+    "blake3>=0.3.3",
+]
