@@ -19,3 +19,7 @@ vitest.config.*.timestamp*
 docs/
 
 models/
+ß
+# Ignore Python bytecode cache
+__pycache__/
+*.py[cod]
