@@ -1,0 +1,16 @@
+{
+	"name": "@pb-ai/inference",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"main": "./src/index.ts",
+	"types": "./src/index.ts",
+	"dependencies": {
+		"@huggingface/transformers": "^3.4.0",
+		"onnxruntime-web": "^1.21.0",
+		"idb-keyval": "^6.2.1"
+	},
+	"devDependencies": {
+		"typescript": "^5.9.0"
+	}
+}
