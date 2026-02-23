@@ -9,11 +9,6 @@
       --dtype int8 \
       --layers-per-chunk 1 \
       --copy-tokenizer ../../models/tinyllama-1.1b-chat-int8/
-
-    # 旧模式 (不拆分 base):
-    python main.py \
-      --input model.onnx --output dist/ --model-id "model" \
-      --no-split-base --layers-per-chunk 4
 """
 
 from src.cli import parse_args
