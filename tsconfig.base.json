@@ -15,8 +15,7 @@
 		"skipDefaultLibCheck": true,
 		"baseUrl": ".",
 		"paths": {
-			"packages": ["packages/src/index.ts"],
-			"sdk-ts": ["packages/sdk-ts/src/index.ts"]
+			"packages": ["packages/src/index.ts"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]
