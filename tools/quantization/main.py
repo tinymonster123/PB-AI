@@ -1,9 +1,9 @@
-from src.load_models import download_tinyllama
+from src.load_models import ensure_tinyllama_local
 from src.quantize import quantize
 
 
 def main():
-    download_tinyllama()
+    ensure_tinyllama_local()
     quantize()
 
 
